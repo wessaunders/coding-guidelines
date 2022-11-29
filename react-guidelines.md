@@ -48,21 +48,23 @@ This is intended to establish coding and styling guidelines for react.
   - The main component file should be component name.js
   - Component styles should be located within a component name.module.css file in the same directory as the component’s JavaScript
 ```
-|--src
-    |--Components
-        |--Lightsaber
-            |--lightsaber.js
-            |--lightsaber.module.css
+|--src\
+    |--Components\
+        |--Lightsaber\
+            lightsaber.js
+            lightsaber.module.css
 ```
 
 - Colocate unit tests
-    - In modern React applications it is conventional to co-locate your JavaScript test files alongside the modules being tested.
-    - Colocating tests can make it easier to see what files completely lack tests, and they simplify the import code within the test files as all imports are now relative to the module under test. Some teams find this structure also supports test-driven development. create-react-app and other bootstrapping tools assume co-located tests will be used, and modern test runners like Jest will automatically detect and run these *.test.js files.
+    - In modern React applications it is conventional to co-locate JavaScript test files alongside the modules being tested.
+    - Colocating tests can make it easier to see what files completely lack tests, and they simplify the import code within the test files as all imports are now relative to the module under test. Create-react-app and other bootstrapping tools assume co-located tests will be used, and modern test runners like Jest will automatically detect and run these *.test.js files.
 ```
-Jedi/
-    jedi.js
-    jedi.module.css
-    jedi.test.js
+|--src\
+    |--Components\
+        |--Jedi\
+            jedi.js
+            jedi.module.css
+            jedi.test.js
 ```
 
 # Class vs. functional components
