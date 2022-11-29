@@ -306,8 +306,58 @@ const List = () => {
 {showButton && <Button />}
 ```
 
+- Order component methods in the following order:
+    1. Hooks declarations
+    2. state assignments
+    3. select assignments
+    4. lifecycle events
+    5. all other functions in alphabetical order
+    6. return
+> Why?  Keeping the methods in order encourages consistency, and putting all the defined (other) functions in alphabetical order does the same.  It also makes it much more obvious if a function has accidentally been declared twice or has been repeated.
+```
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { changeFooBar } from '../../Store/Services/FooBar';
+
+const Foo = () => {
+    const dispatch = useDispatch();
+
+    const [fooText, setFooText] = useState('');
+    const { bar } = useSelector(state => state.foobar);
+
+    useEffect(() => {
+        if (bar) {
+            dispatch(changeFooBar(bar));
+        }
+    }, [bar]);
+
+    onBarClick = () => {
+       dispatch(changeFooBar(bar)); 
+    }
+
+    onFooTextChange = (e) => {
+        setFooText(e.target.value);
+    }
+
+    return (
+        <div>
+            <input
+                onChange={onFooTextChange}
+                type='text'
+                value={fooText}
+            />
+            <button
+                onClick={onBarClick}>
+                Click the foobar button!
+            </button>
+        </div>
+    );
+}
+```
+
 - Keep component props in alphabetical order when declaring the component
-> Why?  Keeping the props in alphabetical order encourages consistency.  It also makes it much more obvious if a prop has been accidentally repeated.
+> Why?  Just like keeping the component functions in alphabetical order encourages consistency, keeping the props in alphabetical order encourages consistency as well.  It also makes it much more obvious if a prop has been accidentally repeated.
 ```
 <Enterprise
     captain='James T Kirk'
