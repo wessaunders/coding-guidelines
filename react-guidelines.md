@@ -180,7 +180,7 @@ class Listing extends React.Component {
 # Maintainability
 - Functions should not exceed 8 statements.
   - Break it down into multiple small and focused methods with self-explaining names, but make sure the high-level algorithm is still clear.
-> Why? A method that requires more than 7 statements is simply doing too much or has too many responsibilities. It also requires the human mind to analyze the exact statements to understand what the code is doing. 
+> Why? A method that requires more than 8 statements is simply doing too much or has too many responsibilities. It also requires the human mind to analyze the exact statements to understand what the code is doing. 
     
 - Take Out Extraneous Comments From the Code
   - Only add comments where they are necessary to avoid confusion when modifying the code later.
