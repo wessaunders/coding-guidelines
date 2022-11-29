@@ -4,7 +4,7 @@ This is intended to establish coding and styling guidelines for CSS.
 
 # Table of contents
 1. [Terminology](#terminology)
-	- Rule declaration
+	- [Rule declaration](#rule-declaration)
 	- Selectors
 	- Properties
 2. [CSS](#css)
