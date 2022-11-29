@@ -69,74 +69,77 @@ This is intended to establish coding and styling guidelines for react.
 
 # Class vs. functional components
 - Prefer functional components over class-based components
-  - With the introduction of hooks to React, the core maintainers of React took a clear preference for the future of functional components over class components. Functional components had long been used for stateless components that did simple rendering, since they could be more readily instantiated and were more performant.
-  - Functional components also get around many of the prevailing issues with using the “this” keyword in class components. A number of potential bug cases can be avoided by using classless components.
-  - Functional components and hooks like useEffect(), useState(), useEffect(), and useContext() result in more concise and readable code compared to classes. 
-    - Consider the following class component that displays data from the NASA API:
-    ```
-    class NasaData extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = {
-          data: [],
-        };
-      }
-      componentDidMount() {
-        fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
-          .then((res) => res.json())
-          .then((json) => {
-            this.setState({
-              data: json,
-            });
-         });
-      }
-
-      render() {
-        const { data } = this.state;
-
-        if (!data.length)
-        return (
-          <div>
-            <h1> Fetching data.... </h1>{" "}
-          </div>
-        );
-
-        return (
-          <>
-          <h1> Fetch data using Class component </h1>{" "}
-          {data.map((item) => (
-            <div key={item.id}>{item.title}</div>
-          ))}
-          </>
-        );
-      }
-    }
-    ```
-      
-    - The same component can be written using hooks:
-    ```
-    const NasaData = () => {
-      const [data, setdata] = useState(null);
-
-      useEffect(() => {
-        fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
-          .then((res) => res.json())
-          .then((json) => {
-            setdata(json);
-          });
-        }, [data]);
-
-      return (
-        <>
-          <h1> Fetch data using Class component </h1>{" "}
-          {data.map((item) => (
-            <div key={item.id}>{item.title}</div>
-          ))}
-        </>
-      );
+    - With the introduction of hooks to React, the core maintainers of React took a clear preference for the future of functional components over class components. Functional components had long been used for stateless components that did simple rendering, since they could be more readily instantiated and were more performant.
+    - Functional components also get around many of the prevailing issues with using the “this” keyword in class components. A number of potential bug cases can be avoided by using classless components.
+    > Functional components and hooks like useEffect(), useState(), useEffect(), and useContext() result in more concise and readable code compared to classes. 
+    
+*Consider the following class component that displays data from the NASA API:*
+```
+class NasaData extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
     };
-    ```
-    - Even though the above block of code does the same thing as the class component, it is less complex, minimal, and easy to understand which contributes to a better developer experience.
+  }
+  componentDidMount() {
+    fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+      .then((res) => res.json())
+      .then((json) => {
+        this.setState({
+          data: json,
+        });
+     });
+  }
+
+  render() {
+    const { data } = this.state;
+
+    if (!data.length)
+    return (
+      <div>
+        <h1> Fetching data.... </h1>{" "}
+      </div>
+    );
+
+    return (
+      <>
+      <h1> Fetch data using Class component </h1>{" "}
+      {data.map((item) => (
+        <div key={item.id}>{item.title}</div>
+      ))}
+      </>
+    );
+  }
+}
+```
+
+*The same component can be written using hooks:*
+        
+```
+const NasaData = () => {
+  const [data, setdata] = useState(null);
+
+  useEffect(() => {
+    fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+      .then((res) => res.json())
+      .then((json) => {
+        setdata(json);
+      });
+    }, [data]);
+
+  return (
+    <>
+      <h1> Fetch data using Class component </h1>{" "}
+      {data.map((item) => (
+        <div key={item.id}>{item.title}</div>
+      ))}
+    </>
+  );
+};
+```
+
+*Even though the above block of code does the same thing as the class component, it is less complex, minimal, and easy to understand which contributes to a better developer experience.*
 
 - There are situations where class-based components may be necessary.  Keep in mind that as they grow class-based components start becoming complex and harder to understand. In addition to that, these components are less abstract. 
 - If you are building a class-based component, prefer class extends React.Component over React.createClass. 
