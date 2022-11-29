@@ -782,23 +782,19 @@ class extends React.Component {
 
 
 # Testing
-- One of the most common testing frameworks for React is Jest, and it provides an environment where you can execute your tests.
-- Jasmine?
-- Testing guarantees that the parts behave as you would anticipate and reduces challenges for React Developers.
+Testing guarantees that the parts behave as you would anticipate and reduces challenges for React Developers.
 
 - Unit test components
-  - Write Tests for Each React Component
-  - Components should tested as closely as possible to how they will be used. For this reason, the react-testing-library is an excellent library to use when unit testing components. It provides utilities to find and interact with components in rendered DOM. The library has many fantastic guides on their website.
-  - As part of unit testing components, when possible, mock out complex rendered children. This will make tests more performant, less fragile, and easier to debug.
+    - Write Tests for Each React Component
+    - Components should tested as closely as possible to how they will be used. For this reason, the react-testing-library is an excellent library to use when unit testing components. It provides utilities to find and interact with components in rendered DOM. The library has many fantastic guides on their website.
+    - As part of unit testing components, when possible, mock out complex rendered children. This will make tests more performant, less fragile, and easier to debug.
 - Unit test complex internal logic
-  - Components often have complicated logic that controls how they work. One great example of this is a form component’s validation logic.
-  - Rather than trying to test this logic by interacting directly with the component, extract it out into a utility function (either in the same file as a named export or a separate utility file) and test it separately.  
+    - Components often have complicated logic that controls how they work. One great example of this is a form component’s validation logic.
+    - Rather than trying to test this logic by interacting directly with the component, extract it out into a utility function (either in the same file as a named export or a separate utility file) and test it separately.  
+- Write both success and failure tests
+    - Write tests that will validate the success case of the code being tested, but also write tests that will validate the failure case.  This ensures that the code operates as intended as well as **fails as intended**.
 
-- Writing tests for all code
-  - 
-  - When it comes to the implementation of any programming language, adequate testing is needed. The goal is to ensure that the new code added to your project integrates with the existing code. There are chances of breaking existing functionality. Writing tests for all codes can eradicate the issue.
-  - Create a _Test_ directory within the directory to conduct relevant tests.
-  - Divide tests in React into testing the functionality of components and tests on the application once it renders in the browser. Use cross-browser testing tools that can help with the objective of testing the latter category. For the former, use a JavaScript test runner, Jest, to help to emulate the HTML DOM using jsdom to test React components.
-  - A completely accurate test is only possible in a browser that has been long associated with the real device. Also, it can be said that Jest provides a good approximation of the real testing environment that can assist a developer a lot in the development phase of the project. Also, this principle serves as React practical advice for improving code quality.
-
-
+React testing frameworks
+- Jest 
+    - One of the most common testing frameworks for React
+- Jasmine
