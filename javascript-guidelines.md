@@ -17,6 +17,11 @@ This is intended to establish coding and styling guidelines for javascript.
 - Regardless of the elegance of someone’s solution, if it’s too complex for the ordinary developer, exposes unusual behavior, or tries to solve many possible future issues, it is very likely the wrong solution and needs redesign. The worst response a developer can give you to these principles is: “But it works?”.
 
 # Formatting
+- Tabs for Indentation
+    - Use tabs for indenting your code. With tabs users can choose their desired width. This has positive implications for accessibility and screenreaders, putting people in control of how they want to view the code.
+
+- No trailing whitespace
+    - Always clean up any trailing whitespace in your .js files before committing.
 
 - Chained Calls
   - Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which emphasizes that the line is a method call, not a new statement.
