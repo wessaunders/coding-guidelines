@@ -1,4 +1,4 @@
-# React Coding Guidelines
+# Javascript Coding Guidelines
 
 This is intended to establish coding and styling guidelines for javascript.
 
