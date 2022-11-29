@@ -3,7 +3,7 @@
 This is intended to establish coding and styling guidelines for react.
 
 # Table of contents
-- [Basic rules](#basic-rules)
+- [Basic principles](#basic-principles)
 - [Project organization](#project-organization)
 - [Class vs. functional components](#class-vs.-functional-components)
 - [Component design](#component-design)
