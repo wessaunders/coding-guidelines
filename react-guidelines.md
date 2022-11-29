@@ -13,6 +13,7 @@ This is intended to establish coding and styling guidelines for react.
 - [Naming](#naming)
 - [Declaration](#declaration)
 - [Performance](#performance)
+- [Redux](#redux)
 - [Documentation](#documentation)
 - [Testing](#testing)
 
@@ -618,6 +619,8 @@ class extends React.Component {
 - All component access to redux functionality should be through functions defined in services instead of calling reducers or actions directly.
 > Why?  This is for consistency.  While it is certainly possible to access reducers and actions directly from a component it can become more confusing  when debugging or modifying the component later.
 
+- Prefer using fetch() over a third-party library such as axios when making external calls to APIs or other web utilities
+> Why?  Fetch is part of the HTML5 standard whereas other libraries may or may not be maintained or available in the future.
 
 # Documentation
 - **JSDoc**
