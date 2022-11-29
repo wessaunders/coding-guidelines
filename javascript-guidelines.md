@@ -1,6 +1,7 @@
 # Javascript Coding Guidelines
 
-This is intended to establish coding and styling guidelines for javascript.
+This is intended to establish coding and styling guidelines for javascript. 
+The intention is that all code in any code base should look like a single person typed it, no matter how many people contributed.
 
 # Table of contents
 - [Basic Principles](#basic-principles)
