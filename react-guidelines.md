@@ -26,6 +26,9 @@ This is intended to establish coding and styling guidelines for react.
 - Regardless of the elegance of someone’s solution, if it’s too complex for the ordinary developer, exposes unusual behavior, or tries to solve many possible future issues, it is very likely the wrong solution and needs redesign. The worst response a developer can give you to these principles is: “But it works?”.
 
 # Project organization
+- Only include one React component per file.
+- Always use JSX syntax.
+
 - Project components should be separated into separate descriptive directories.
   - All components should be contained within a Components directory.
   - All constants should be contained within a Constants directory.
@@ -33,8 +36,7 @@ This is intended to establish coding and styling guidelines for react.
  
 - All components should always be defined as a directory, named with pascal casing. 
   - The main component file should be component name.js
-  - The main stylesheet should be named component name.module.css
-
+  - Component styles should be located within a component name.module.css file in the same directory as the component’s JavaScript
 ```
 Lightsaber
 |--lightsaber.js
@@ -50,9 +52,6 @@ Jedi/
     jedi.module.css
     jedi.test.js
 ```
-
-- Only include one React component per file.
-- Always use JSX syntax.
 
 # Class vs. functional components
 - Prefer functional components over class-based components
