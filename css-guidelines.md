@@ -110,7 +110,7 @@ Use em for font-size as opposed to px to ensure that font scaling works as expec
 ```
 
 ## Comments
-- Prefer line comments (// in Sass-land) to block comments.
+- Prefer line comments to block comments.
 - Prefer comments on their own line. Avoid end-of-line comments.
 - Write detailed comments for code that isn't self-documenting:
 	- Uses of z-index
