@@ -4,6 +4,7 @@ This is intended to establish coding and styling guidelines for javascript.
 
 # Table of contents
 - [Basic Principles](#basic-principles)
+- [Formatting](#formatting)
 - [Variables, references, and declarations](#variables,-references,-and-declarations)
 
 # Basic principles
@@ -15,6 +16,50 @@ This is intended to establish coding and styling guidelines for javascript.
 - In general, generated code should not need to comply with coding guidelines. However, if it is possible to modify the templates used for generation, try to make them generate code that complies as much as possible.
 - Regardless of the elegance of someone’s solution, if it’s too complex for the ordinary developer, exposes unusual behavior, or tries to solve many possible future issues, it is very likely the wrong solution and needs redesign. The worst response a developer can give you to these principles is: “But it works?”.
 
+# Formatting
+
+- Chained Calls
+  - Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which emphasizes that the line is a method call, not a new statement.
+  ```
+  // bad 👎
+  $('#items').find('.selected').highlight().end().find('.open').updateCount();
+
+  // bad 👎
+  $('#items').
+    find('.selected').
+      highlight().
+      end().
+    find('.open').
+      updateCount();
+
+  // good 👍
+  $('#items')
+    .find('.selected')
+      .highlight()
+      .end()
+    .find('.open')
+      .updateCount();
+
+  // bad 👎
+  const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
+    .attr('width', (radius + margin) * 2).append('svg:g')
+    .attr('transform', `translate(${radius + margin},${radius + margin})`)
+    .call(tron.led);
+
+  // good 👍
+  const leds = stage.selectAll('.led')
+    .data(data)
+  .enter().append('svg:svg')
+    .classed('led', true)
+    .attr('width', (radius + margin) * 2)
+  .append('svg:g')
+    .attr('transform', `translate(${radius + margin},${radius + margin})`)
+    .call(tron.led);
+
+  // good 👍
+  const leds = stage.selectAll('.led').data(data);
+  ```
+  
 # Variables, references, and declarations
 - Use *const* for all of your references
   - avoid using *var*
