@@ -305,6 +305,16 @@ const List = () => {
 {showButton && <Button />}
 ```
 
+- Keep component props in alphabetical order when declaring the component
+> Why?  Keeping the props in alphabetical order encourages consistency.  It also makes it much more obvious if a prop has been accidentally repeated.
+```
+<Enterprise
+    captain='James T Kirk'
+    numberOfCrew=1500
+    topSpeed='Warp 9'
+/>
+```
+
 # Formatting 
 - Line length
   - Keep the length of each line under 130 characters.
