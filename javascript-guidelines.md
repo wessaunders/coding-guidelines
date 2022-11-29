@@ -1,7 +1,8 @@
-Javascript Coding Guidelines
+# React Coding Guidelines
+
 This is intended to establish coding and styling guidelines for javascript.
 
-Table of contents
+# Table of contents
 - [Basic Principles](#basic-principles)
 - [Variables, references, and declarations](#variables,-references,-and-declarations)
 
