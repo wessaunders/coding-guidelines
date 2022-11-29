@@ -308,11 +308,11 @@ const List = () => {
 
 - Order component methods in the following order:
 1. Hooks declarations
-2. state assignments
-3. select assignments
-4. lifecycle events
-5. all other functions in alphabetical order
-6. return
+2. State assignments
+3. Select assignments
+4. Lifecycle events
+5. All other functions in alphabetical order
+6. Return
 > Why?  Keeping the methods in order encourages consistency, and putting all the defined (other) functions in alphabetical order does the same.  It also makes it much more obvious if a function has accidentally been declared twice or has been repeated.
 ```
 import React, { useEffect, useState } from 'react';
