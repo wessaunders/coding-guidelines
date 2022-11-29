@@ -366,6 +366,55 @@ const Foo = () => {
 />
 ```
 
+- Align and sort HTML properties
+Fit it all on the same line if there is a single property. Otherwise, put each property on a line of its own, indented one tab, in sorted (alphabetical) order. The closing angle brace should be on a line of its own, indented the same as the opening angle brace. This makes it easy to see the props at a glance.
+
+> Consistent property ordering makes it easier to manage complex components. 
+Properties should generally be sorted into the following groups, and ordered alphabetically within those groups:
+    - key should be first if required.
+    - Values
+    - Event handlers (on...)
+```
+// Bad
+
+// property not on its own line
+<div className="highlight"      
+     key="highlight-div"
+>
+
+// closing brace not on its own line
+<div                            
+    key="highlight-div"
+    className="highlight">
+    
+// key is not first   
+<div                            
+    className="highlight"
+    key="highlight-div"
+>
+
+// handlers should be after values
+<Image                          
+    key="highlight-div"
+    onClick={ () => this.onClick() }
+    size="40"
+/>
+
+// Good
+<div className="highlight">
+
+<div
+    key="highlight-div"
+    className="highlight"
+>
+
+<Image
+    key="highlight-div"
+    className="highlight"
+    onClick={ () => this.onClick() }
+/>
+```
+
 # Formatting 
 - Line length
   - Keep the length of each line under 130 characters.
