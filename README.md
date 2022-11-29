@@ -6,4 +6,4 @@ This is a collection of coding guidelines for web projects utilizing react, java
 
 [Javascript coding guidelines](https://github.com/wessaunders/coding-guidelines/blob/main/javascript-guidelines.md)
 
-[CSS guidelines](#)
+[CSS guidelines](https://github.com/wessaunders/coding-guidelines/blob/main/css-guidelines.md)
