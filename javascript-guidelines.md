@@ -1,5 +1,9 @@
-[Basic Principles](#basic-principles)
-[Variables, references, and declarations](#variables,-references,-and-declarations)
+Javascript Coding Guidelines
+This is intended to establish coding and styling guidelines for javascript.
+
+Table of contents
+- [Basic Principles](#basic-principles)
+- [Variables, references, and declarations](#variables,-references,-and-declarations)
 
 # Basic principles
 - In general, if there is a situation that this document does not cover, refer back to the following set of basic principles that apply to all situations, regardless of context:
