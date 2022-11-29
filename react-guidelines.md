@@ -619,6 +619,8 @@ class extends React.Component {
     ```
 
 # Documentation
+- **JSDoc**
+
 - Avoid inline comments
   - If you feel the need to explain a block of code using a comment, consider replacing that block with a method with a clear name.
 - Only write comments to explain complex algorithms or decisions
