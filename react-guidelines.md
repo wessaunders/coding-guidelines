@@ -367,13 +367,15 @@ const Foo = () => {
 ```
 
 - Align and sort HTML properties
+
 Fit it all on the same line if there is a single property. Otherwise, put each property on a line of its own, indented one tab, in sorted (alphabetical) order. The closing angle brace should be on a line of its own, indented the same as the opening angle brace. This makes it easy to see the props at a glance.
 
-> Consistent property ordering makes it easier to manage complex components. 
+> Consistent property ordering makes it easier to manage complex components.
+
 Properties should generally be sorted into the following groups, and ordered alphabetically within those groups:
-    - key should be first if required.
-    - Values
-    - Event handlers (on...)
+- key should be first if required.
+- Values
+- Event handlers (on...)
 ```
 // Bad
 
