@@ -417,6 +417,45 @@ Properties should generally be sorted into the following groups, and ordered alp
 />
 ```
 
+- Similarly, do not use one line components when the component has more than one property
+```
+// Bad
+<button type="submit" disabled onClick={() => null} className="aLongSpecificClassName">
+  Click here
+</button>
+
+<button type="submit" className="aLongSpecificClassName">
+  Click here
+</button>
+
+<button className="aLongSpecificClassName">Click here</button>
+```
+
+Instead, separate each property onto its own line and indent it appropriately.  Also ensure the properties are ordered (alphabetically).
+```
+// Good
+<button
+  className="aLongSpecificClassNameWithLasers"
+  disabled={loading}
+  onClick={() => null}
+  type="submit"
+>
+  Click here
+</button>
+```
+
+- Elements contained within elements should also be put on a separate line and indented appropriately
+```
+// Bad
+<div className="example"><span class="highlight">Bad</span> example</div>
+
+// Good
+<div className="example">
+  <span className="highlight">Bad</span>
+  example
+</div>
+```
+
 # Formatting 
 - Line length
   - Keep the length of each line under 130 characters.
