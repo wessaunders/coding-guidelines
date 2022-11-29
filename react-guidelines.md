@@ -30,7 +30,27 @@ This is intended to establish coding and styling guidelines for react.
   - All components should be contained within a Components directory.
   - All constants should be contained within a Constants directory.
   - All redux functionality (services, reducers, actions) should be contained within a Store directory.
-   
+ 
+- All components should always be defined as a directory, named with pascal casing. 
+  - The main component file should be component name.js
+  - The main stylesheet should be named component name.module.css
+
+```
+Lightsaber
+|--lightsaber.js
+|--lightsaber.module.css
+```
+
+- Colocate unit tests
+    - In modern React applications it is conventional to co-locate your JavaScript test files alongside the modules being tested.
+    - Colocating tests can make it easier to see what files completely lack tests, and they simplify the import code within the test files as all imports are now relative to the module under test. Some teams find this structure also supports test-driven development. create-react-app and other bootstrapping tools assume co-located tests will be used, and modern test runners like Jest will automatically detect and run these *.test.js files.
+```
+Jedi/
+    jedi.js
+    jedi.module.css
+    jedi.test.js
+```
+
 - Only include one React component per file.
 - Always use JSX syntax.
 
@@ -126,16 +146,6 @@ class Listing extends React.Component {
 ```
 
 # Component design
-- All components should always be defined as a directory, named with pascal casing. 
-  - The main component file should be component name.js
-  - The main stylesheet should be named component name.module.css
-
-```
-Lightsaber
-|--lightsaber.js
-|--lightsaber.module.css
-```
-
 - A component should have a single purpose within the system it functions in. In general, a component either serves as a piece of the UI or is responsible for orchestrating the interaction between other components. It is never a combination of those. This rule is widely known as the Single Responsibility Principle, one of the S.O.L.I.D. principles.  
   - In case you notice that any component becomes huge and difficult to maintain, break it up into as many smaller components. For example, create a Button component that can handle icons. You should ensure that making it more modular to cover many cases with the same piece of code. Make sure that the components should be abstract enough but not overly complex.
     - Tip: A component with the word And in it is an obvious violation of this rule.
