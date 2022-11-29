@@ -282,7 +282,7 @@ const List = () => {
   anotherSuperLongParam="baz"
 />
 
-// if props fit in one line then keep it on the same line
+// if one props or fewer AND it fits in one line then keep it on the same line
 <Foo bar="bar" />
 
 // children get indented normally
