@@ -24,73 +24,71 @@ This is intended to establish coding and styling guidelines for javascript.
     - Always clean up any trailing whitespace in your .js files before committing.
 
 - Chained Calls
-  - Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which emphasizes that the line is a method call, not a new statement.
-  ```
-  // bad 👎
-  $('#items').find('.selected').highlight().end().find('.open').updateCount();
+    - Use indentation when making long method chains (more than 2 method chains). Use a leading dot, which emphasizes that the line is a method call, not a new statement.
+    ```
+    // bad 👎
+    $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
-  // bad 👎
-  $('#items').
+    // bad 👎
+    $('#items').
     find('.selected').
       highlight().
       end().
     find('.open').
       updateCount();
 
-  // good 👍
-  $('#items')
+    // good 👍
+    $('#items')
     .find('.selected')
       .highlight()
       .end()
     .find('.open')
       .updateCount();
 
-  // bad 👎
-  const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
+    // bad 👎
+    const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').classed('led', true)
     .attr('width', (radius + margin) * 2).append('svg:g')
     .attr('transform', `translate(${radius + margin},${radius + margin})`)
     .call(tron.led);
 
-  // good 👍
-  const leds = stage.selectAll('.led')
+    // good 👍
+    const leds = stage.selectAll('.led')
     .data(data)
-  .enter().append('svg:svg')
+    .enter().append('svg:svg')
     .classed('led', true)
     .attr('width', (radius + margin) * 2)
-  .append('svg:g')
+    .append('svg:g')
     .attr('transform', `translate(${radius + margin},${radius + margin})`)
     .call(tron.led);
 
-  // good 👍
-  const leds = stage.selectAll('.led').data(data);
-  ```
+    // good 👍
+    const leds = stage.selectAll('.led').data(data);
+    ```
   
 # Variables, references, and declarations
-- Use *const* for all of your references
-  - avoid using *var*
-  > IMPORTANCE: This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
-  ```
-  // bad 👎
-  var a = 1;
-  var b = 2;
+- Avoid using *var* - use *const* for all of your references
+    > IMPORTANCE: This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
+    ```
+    // bad 👎
+    var a = 1;
+    var b = 2;
 
-  // good 👍
-  const a = 1;
-  const b = 2;
-  ```
-- Use *let* instead of *var*
-  - If you must reassign references, use 'let' instead of 'var'.
-  > IMPORTANCE: let is block-scoped rather than function-scoped like var.
-  ```
-  // bad 👎
-  var count = 1;
-  if (true) {
+    // good 👍
+    const a = 1;
+    const b = 2;
+    ```
+- If you must reassign references, use 'let' instead of 'var'.
+    > IMPORTANCE: let is block-scoped rather than function-scoped like var.
+    ```
+    // bad 👎
+    var count = 1;
+    if (true) {
     count += 1;
-  }
+    }
 
-  // good 👍 , use the let.
-  let count = 1;
-  if (true) {
+    // good 👍 , use the let.
+    let count = 1;
+    if (true) {
     count += 1;
-  }
-  ```
+    }
+    ```
