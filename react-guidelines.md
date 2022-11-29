@@ -538,6 +538,15 @@ const successButton = <SuccessButton />;
 />
 ```
 
+- Name event handlers onEventName
+    - This is consistent with React’s event naming: onClick, onDrag, onChange, etc.
+    ```
+    <Component 
+        onClick={ e => this.onClick( e ) } 
+        onLaunchMissiles={ num => this.onLaunchMissiles( num ) } 
+    />    
+    ```
+
 # Declaration
 - Do not use underscore prefix for internal methods of a React component.
 > Why? Underscore prefixes are sometimes used as a convention in other languages to denote privacy. But, unlike those languages, there is no native support for privacy in JavaScript, everything is public. Regardless of your intentions, adding underscore prefixes to your properties does not actually make them private, and any property (underscore-prefixed or not) should be treated as being public.
