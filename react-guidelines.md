@@ -538,7 +538,7 @@ const successButton = <SuccessButton />;
 />
 ```
 
-- Name event handlers onEventName
+- **Event handlers**: Name event handlers onEventName
     - This is consistent with React’s event naming: onClick, onDrag, onChange, etc.
     ```
     <Component 
