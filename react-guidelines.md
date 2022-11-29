@@ -48,9 +48,11 @@ This is intended to establish coding and styling guidelines for react.
   - The main component file should be component name.js
   - Component styles should be located within a component name.module.css file in the same directory as the component’s JavaScript
 ```
-Lightsaber
-|--lightsaber.js
-|--lightsaber.module.css
+|--src
+    |--Components
+        |--Lightsaber
+            |--lightsaber.js
+            |--lightsaber.module.css
 ```
 
 - Colocate unit tests
