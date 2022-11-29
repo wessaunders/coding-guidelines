@@ -4,6 +4,6 @@ This is a collection of coding guidelines for web projects utilizing react, java
 
 [React coding guidelines](https://github.com/wessaunders/coding-guidelines/blob/main/react-guidelines.md)
 
-[Javascript coding guidelines](#)
+[Javascript coding guidelines](https://github.com/wessaunders/coding-guidelines/blob/main/javascript-guidelines.md)
 
 [CSS guidelines](#)
