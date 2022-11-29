@@ -8,7 +8,7 @@ This is intended to establish coding and styling guidelines for CSS.
 	- [Selectors](#selectors)
 	- [Properties](#properties)
 2. [CSS](#css)
-	- Formatting
+	- [Formatting](#formatting)
 	- Comments
 	- Border
 
@@ -34,6 +34,23 @@ In a rule declaration, “selectors” are the bits that determine which element
     /* ... */
 }
 ```
+  
+When using multiple selectors, give each selector its own line  
+### Bad
+```
+.container > img, .container > div, .container > section {
+  background-color: #CCCCCC;
+}
+```
+
+### Good
+```
+.container > img,
+.container > div,
+.container > section {
+  background-color: #CCCCCC;
+}
+```
 
 ## Properties
 Finally, properties are what give the selected elements of a rule declaration their style. Properties are key-value pairs, and a rule declaration can contain one or more property declarations. Property declarations look like this:
@@ -48,6 +65,46 @@ Finally, properties are what give the selected elements of a rule declaration th
 Use em for font-size as opposed to px to ensure that font scaling works as expected across devices.
 
 # CSS
-When using multiple selectors, give each selector its own line
 
-Organize one selector per line, even when placing all of them at the same line doesn't exceed 80 columns.
+## Formatting
+- Use tabs for indentation.
+- Prefer dashes over camelCasing in class names.
+- Underscores and PascalCasing are okay if you are using BEM (see OOCSS and BEM below).
+- Do not use ID selectors.
+- When using multiple selectors in a rule declaration, give each selector its own line.
+- Put a space before the opening brace { in rule declarations.
+- In properties, put a space after, but not before, the : character.
+- Put closing braces } of rule declarations on a new line.
+- Put blank lines between rule declarations.
+
+### Bad
+```
+.avatar {
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.no,
+.nope,
+.not_good {
+    // ...
+}
+
+#lol-no {
+  // ...
+}
+```
+
+### Good
+```
+.avatar {
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.one,
+.selector,
+.per-line {
+  // ...
+}
+```
