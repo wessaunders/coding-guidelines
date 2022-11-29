@@ -32,7 +32,16 @@ This is intended to establish coding and styling guidelines for react.
 - Project components should be separated into separate descriptive directories.
   - All components should be contained within a Components directory.
   - All constants should be contained within a Constants directory.
-  - All redux functionality (services, reducers, actions) should be contained within a Store directory.
+  - All redux functionality (services, reducers, actions) should be contained within separate directories within a Store directory.
+```
+|--src
+    |--Components
+    |--Constants
+    |--Store
+        |--Actions
+        |--Reducers
+        |--Services
+```
  
 - All components should always be defined as a directory, named with pascal casing. 
   - The main component file should be component name.js
@@ -500,6 +509,7 @@ render() {
   - Don’t use terms like Enum, Class or Struct in a name.
   - Identifiers that refer to a collection type should have plural names.
 
+- **Folders/Directories**: Use PascalCase for folders/directories.
 - **Filename**: Use PascalCase for filenames. 
   - For example: ReservationCard.js, Menu.js
 - **Reference Naming**: Use PascalCase for React components and camelCase for their instances.  
@@ -580,7 +590,7 @@ class extends React.Component {
 ```
 
 # Performance
-- Avoid Using State (If Possible)
+- Avoid Using State (if possible)
   - React state keeps track of the data which when changed triggers the React component to re-render. When building React applications, avoid using state as much as possible since the more state you use, the more data you have to keep track of across your app.
   - One way of minimizing the use of state is by declaring it only when necessary. For instance, if you are fetching user data from an API, store the whole user object in the state instead of storing the individual properties.
   - Instead of doing this:
@@ -593,6 +603,11 @@ class extends React.Component {
     ```
     const [user, setuser] = useState({})
     ```
+
+# Redux
+- All component access to redux functionality should be through functions defined in services instead of calling reducers or actions directly.
+> Why?  This is for consistency.  While it is certainly possible to access reducers and actions directly from a component it can become more confusing  when debugging or modifying the component later.
+
 
 # Documentation
 - **JSDoc**
