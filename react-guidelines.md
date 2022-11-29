@@ -144,7 +144,7 @@ const NasaData = () => {
 - There are situations where class-based components may be necessary.  Keep in mind that as they grow class-based components start becoming complex and harder to understand. In addition to that, these components are less abstract. 
 - If you are building a class-based component, prefer class extends React.Component over React.createClass. 
 ```
-// bad
+// bad 👎
 const Listing = React.createClass({
   // ...
   render() {
@@ -152,7 +152,7 @@ const Listing = React.createClass({
   }
 });
 
-// good
+// good 👍
 class Listing extends React.Component {
   // ...
   render() {
@@ -200,20 +200,20 @@ class Listing extends React.Component {
 - Don’t use “magic” numbers
   - Don’t use literal values, either numeric or strings, in your code, other than to define symbolic constants. For example:
   ```
-  // bad
+  // bad 👎
   const userTimeout = 10000;
   
-  // good
+  // good 👍
   const timeoutInMilliseconds = 10000;
   const userTimeout = timeoutInMilliseconds;
   ```
 
   - Strings intended for logging or tracing are exempt from this rule. Literals are allowed when their meaning is clear from the context, and not subject to future changes, For example:
   ```
-  // okay
+  // okay 👍
   const mean = (a + b) / 2;
   
-  // clear enough  
+  // clear enough 👍
   const waitMilliseconds = waitTimeInSeconds * 1000; 
   ```
   
@@ -226,16 +226,16 @@ class Listing extends React.Component {
 - Don’t make explicit comparisons to *true* or *false*.
   - It is usually bad style to compare a bool-type expression to true or false. For example:
   ```
-  // wrong; bad style
+  // wrong; bad style 👎
   while (condition == false) {}
   
-  // also wrong
+  // also wrong 👎
   while (condition != true) {}
 
-  // where do you stop?
+  // where do you stop? 👎
   while (((condition == true) == true) == true) {}
   
-  // good
+  // good 👍
   while (condition) {}
   ```
   
@@ -272,11 +272,11 @@ const List = () => {
 # Layout
 - Follow this layout style for JSX syntax:
 ```
-// bad
+// bad 👎
 <Foo superLongParam="bar"
      anotherSuperLongParam="baz" />
 
-// good
+// good 👍
 <Foo
   superLongParam="bar"
   anotherSuperLongParam="baz"
@@ -293,23 +293,23 @@ const List = () => {
   <Quux />
 </Foo>
 
-// bad
+// bad 👎
 {showButton &&
   <Button />
 }
 
-// bad
+// bad 👎
 {
   showButton &&
     <Button />
 }
 
-// good
+// good 👍
 {showButton && (
   <Button />
 )}
 
-// good
+// good 👍
 {showButton && <Button />}
 ```
 
@@ -384,8 +384,7 @@ Properties should generally be sorted into the following groups, and ordered alp
 - Values
 - Event handlers (on...)
 ```
-// Bad
-
+// Bad 👎
 // property not on its own line
 <div className="highlight"      
      key="highlight-div"
@@ -409,7 +408,7 @@ Properties should generally be sorted into the following groups, and ordered alp
     size="40"
 />
 
-// Good
+// Good 👍
 <div className="highlight">
 
 <div
@@ -426,7 +425,7 @@ Properties should generally be sorted into the following groups, and ordered alp
 
 - Similarly, do not use one line components when the component has more than one property
 ```
-// Bad
+// Bad 👎
 <button type="submit" disabled onClick={() => null} className="aLongSpecificClassName">
   Click here
 </button>
@@ -440,7 +439,7 @@ Properties should generally be sorted into the following groups, and ordered alp
 
 Instead, separate each property onto its own line and indent it appropriately.  Also ensure the properties are ordered (alphabetically).
 ```
-// Good
+// Good 👍
 <button
   className="aLongSpecificClassNameWithLasers"
   disabled={loading}
@@ -453,10 +452,10 @@ Instead, separate each property onto its own line and indent it appropriately.  
 
 - Elements contained within elements should also be put on a separate line and indented appropriately
 ```
-// Bad
+// Bad 👎
 <div className="example"><span class="highlight">Bad</span> example</div>
 
-// Good
+// Good 👍
 <div className="example">
   <span className="highlight">Bad</span>
   example
@@ -547,53 +546,53 @@ Instead, separate each property onto its own line and indent it appropriately.  
 - Always use double quotes (") for JSX attributes, but single quotes (') for all other JS.
 > Why? Regular HTML attributes also typically use double quotes instead of single, so JSX attributes mirror this convention.
 ```
-// bad
+// bad 👎
 <Foo bar='bar' />
 
-// good
+// good 👍
 <Foo bar="bar" />
 
-// bad
+// bad 👎
 <Foo style={{ left: "20px" }} />
 
-// good
+// good 👍
 <Foo style={{ left: '20px' }} />
 ```
 
 - Always include a single space in your self-closing tag.
 ```
-// bad
+// bad 👎
 <Foo/>
 
-// very bad
+// very bad 👎👎
 <Foo                 />
 
-// bad
+// bad 👎
 <Foo
  />
 
-// good
+// good 👍
 <Foo />
 ```
 
 - Do not pad JSX curly braces with spaces.
 ```
-// bad
+// bad 👎
 <Foo bar={ baz } />
 
-// good
+// good 👍
 <Foo bar={baz} />
 ```
 - Wrap JSX tags in parentheses when they span more than one line.
 ```
-// bad
+// bad 👎
 render() {
   return <MyComponent variant="long body" foo="bar">
            <MyChild />
          </MyComponent>;
 }
 
-// good
+// good 👍
 render() {
   return (
     <MyComponent variant="long body" foo="bar">
@@ -602,7 +601,7 @@ render() {
   );
 }
 
-// good, when single line
+// good, when single line 👍
 render() {
   const body = <div>hello</div>;
   return <MyComponent>{body}</MyComponent>;
@@ -611,21 +610,21 @@ render() {
 
 - Always self-close tags that have no children.
 ```
-// bad
+// bad 👎
 <Foo variant="stuff"></Foo>
 
-// good
+// good 👍
 <Foo variant="stuff" />
 ```
 
 - If your component has multiline properties, close its tag on a new line.
 ```
-// bad
+// bad 👎
 <Foo
   bar="bar"
   baz="baz" />
 
-// good
+// good 👍
 <Foo
   bar="bar"
   baz="baz"
@@ -648,16 +647,16 @@ render() {
 - Don’t use abbreviations
   - For example, use ButtonOnClick rather than BtnOnClick. Avoid single character variable names, such as i or q. Use index or query instead.
     ```
-    // bad
+    // bad 👎
     const BtnOnClick;
 
-    // good
+    // good 👍
     const ButtonOnClick;
 
-    // bad
+    // bad 👎
     let i = 1;
     
-    // good
+    // good 👍
     let index = 1;
     ``` 
   - Exceptions: Use well-known acronyms and abbreviations that are widely accepted or well-known in your work domain. For instance, use acronym *UI* instead of *UserInterface* and abbreviation *Id* instead of *Identity*.
@@ -672,16 +671,16 @@ render() {
   - For example: ReservationCard.js, Menu.js
 - **Reference Naming**: Use PascalCase for React components and camelCase for their instances.  
 ```
-// bad
+// bad 👎
 import successButton from './SuccessButton';
 
-// good
+// good 👍
 import SuccessButton from './SuccessButton';
 
-// bad
+// bad 👎
 const SuccessButton = <SuccessButton />;
 
-// good
+// good 👍
 const successButton = <SuccessButton />;
 ```
 - Use camelCase for functions declared inside React components.
@@ -691,24 +690,24 @@ const successButton = <SuccessButton />;
 - **Props Naming**: Avoid using DOM component prop names for different purposes.
 > Why? People expect props like style and className to mean one specific thing. Varying this API for a subset of your app makes the code less readable and less maintainable, and may cause bugs.
 ```
-// bad
+// bad 👎
 <MyComponent style="fancy" />
 
-// bad
+// bad 👎
 <MyComponent className="fancy" />
 
-// good
+// good 👍
 <MyComponent variant="fancy" />
 ```
 - **Props Naming**: Always use camelCase for prop names.
 ```
-// bad
+// bad 👎
 <Foo
   UserName="hello"
   phone_number={12345678}
 />
 
-// good
+// good 👍
 <Foo
   userName="hello"
   phoneNumber={12345678}
@@ -728,7 +727,7 @@ const successButton = <SuccessButton />;
 - Do not use underscore prefix for internal methods of a React component.
 > Why? Underscore prefixes are sometimes used as a convention in other languages to denote privacy. But, unlike those languages, there is no native support for privacy in JavaScript, everything is public. Regardless of your intentions, adding underscore prefixes to your properties does not actually make them private, and any property (underscore-prefixed or not) should be treated as being public.
 ```
-// bad
+// bad 👎
 React.createClass({
   _onClickSubmit() {
     // do stuff
@@ -737,7 +736,7 @@ React.createClass({
   // other stuff
 });
 
-// good
+// good 👍
 class extends React.Component {
   onClickSubmit() {
     // do stuff
