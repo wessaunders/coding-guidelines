@@ -21,6 +21,8 @@ This is intended to establish coding and styling guidelines for CSS.
 	- [Do not use ID selectors](#do-not-use-id-selectors)
 	- [Put blank lines between rule declarations](#put-blank-lines-between-rule-declarations)
 	- [Put each selector on its own line when using multiple selectors in a rule declaration](#put-each-selector-on-its-own-line-when-using-multiple-selectors-in-a-rule-declaration)
+	- [Space after function parameters](#space-after-function-parameters)
+	- [Syntax style](#syntax-style)
 
 # Terminology
 
@@ -385,8 +387,40 @@ h3 {
 	
 ```
 	
+## Space after function parameters
+Function parameters should have spaces after their separating commas, but not before
+```css
+color: rgb(255, 0, 0);
+background-image: linear-gradient(to bottom, red, black);
+```
+	
+## Syntax style
 - Use tabs for indentation.
 - Prefer dashes over camelCasing in class names.
-- Put a space before the opening brace { in rule declarations.
-- In properties, put a space after, but not before, the : character.
+- Selector/opening brace, close brace, and each declaration on a separate line
+- Include a space between the selector(s) and the opening curly brace.
+- In properties, put a space after the separating colon (:) character, but not before.
+- Always include a semicolon at the end of the last declaration, even though it isn't strictly necessary.
 - Put closing braces } of rule declarations on a new line.
+
+### Bad
+```css
+p { color: white; background-color: black; padding: 1rem; }
+```
+	
+### Good
+```css
+p {
+  color: white;
+  background-color: black;
+  padding: 1em;
+}
+	
+custom-grid {
+	background-color: white;
+	color: black;
+	height: 4em;
+	padding: 1em;
+	width: 3em;
+}
+```
