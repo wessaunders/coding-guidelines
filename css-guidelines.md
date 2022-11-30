@@ -13,12 +13,12 @@ This is intended to establish coding and styling guidelines for CSS.
 	- [Design patterns](#design-patterns)
 3. [Formatting](#formatting)
 	- [Use flexible/relative units](#use-flexible/relative-units)
-	- [Use em for font-size: property value](#use-em-for-font-size:-property-value)
+	- [Use em for font-size property value](#use-em-for-font-size-property-value)
 	- [!important](#!important)
 	- [Double quotes around values](#double-quotes-around-values)
 	- [Longhand vs. shorthand rules](#longhand-vs.-shorhand-rules)
 	- [Mobile first media queries](#Mobile-first-media-queries)
-	- [Don't use ID selectors](#don't-use-id-selectors)
+	- [Do not use ID selectors](#do-not-use-id-selectors)
 
 # Terminology
 
@@ -273,7 +273,7 @@ To define a variable accessible globally:
 ## Use flexible/relative units
 For maximum flexibility over the widest possible range of devices, it is a good idea to size containers, padding, etc. using relative units like ems or percentages and viewport units if you want them to vary depending on viewport width. Mozilla has a great article about responsive design [here](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/responsive_design_building_blocks#fluid_grids) that goes into more detail about this.
 
-## Use em for font-size: property value
+## Use em for font-size property value
 Use em for font-size as opposed to px to ensure that font scaling works as expected across devices.
 
 ## !important
@@ -350,8 +350,8 @@ In a stylesheet that contains [media query](https://developer.mozilla.org/en-US/
 }
 ```
 
-## Don't use ID selectors
-- they are ess flexible; you can't add more if you discover you need more than one.
+## Do not use ID selectors
+- they are less flexible; you can't add more if you discover you need more than one.
 - they are harder to override because they have higher specificity than classes.
 	
 ### Bad
