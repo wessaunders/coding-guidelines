@@ -9,7 +9,7 @@ This is intended to establish coding and styling guidelines for CSS.
 	- [Properties](#properties)
 2. [CSS](#css)
 	- [Comments](#comments)
-	- [ID Selectors](#id-selectors)
+	- [Naming CSS rules](#naming-css-rules)
 	- [Design patterns](#design-patterns)
 3. [Formatting](#formatting)
 	- [Use flexible/relative units](#use-flexible/relative-units)
@@ -82,10 +82,51 @@ Finally, properties are what give the selected elements of a rule declaration th
 	- Uses of z-index
 	- Compatibility or browser-specific hacks
 
-## ID Selectors
-While it is possible to select elements by ID in CSS, it should generally be considered an anti-pattern. ID selectors introduce an unnecessarily high level of [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) to your rule declarations, and they are not reusable.
+## Naming CSS rules
+Naming
+Pick a name that is sensible, but somewhat ambiguous: aim for high reusability. For example, instead of a class like .site-nav, choose something like .primary-nav; rather than .footer-links, favour a class like .sub-links.
 
-For more on this subject, read [CSS Wizardry's](https://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/) article on dealing with specificity.
+The differences in these names is that the first of each two examples is tied to a very specific use case: they can only be used as the site’s navigation or the footer’s links respectively. By using slightly more ambiguous names, we can increase our ability to reuse these components in different circumstances.
+
+To quote Nicolas Gallagher:
+*Tying your class name semantics tightly to the nature of the content has already reduced the ability of your architecture to scale or be easily put to use by other developers.*
+
+That is to say, we should use sensible names—classes like .border or .red are never advisable—but we should avoid using classes which describe the exact nature of the content and/or its use cases. Using a class name to describe content is redundant because content describes itself.
+
+The debate surrounding semantics has raged for years, but it is important that we adopt a more pragmatic, sensible approach to naming things in order to work more efficiently and effectively. Instead of focussing on ‘semantics’, look more closely at sensibility and longevity—choose names based on ease of maintenance, not for their perceived meaning.
+
+Name things for people; they’re the only things that actually read your classes (everything else merely matches them). Once again, it is better to strive for reusable, recyclable classes rather than writing for specific use cases. Here is an example:
+```css
+/**
+ * Runs the risk of becoming out of date; not very maintainable.
+ */
+.blue {
+  color: blue;
+}
+
+/**
+ * Depends on location in order to be rendered properly.
+ */
+.header span {
+  color: blue;
+}
+
+/**
+ * Too specific; limits our ability to reuse.
+ */
+.header-color {
+  color: blue;
+}
+
+/**
+ * Nicely abstracted, very portable, doesn’t risk becoming out of date.
+ */
+.highlight-color {
+  color: blue;
+}
+```
+
+It is important to strike a balance between names that do not literally describe the style that the class brings, but also ones that do not explicitly describe specific use cases. Instead of .home-page-panel, choose .masthead; instead of .site-nav, favour .primary-nav; instead of .btn-login, opt for .btn-primary.
 
 ## Design Patterns
 
@@ -314,8 +355,10 @@ In a stylesheet that contains [media query](https://developer.mozilla.org/en-US/
 ```
 
 ## Do not use ID selectors
+While it is possible to select elements by ID in CSS, it should generally be considered an anti-pattern. ID selectors introduce an unnecessarily high level of [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) to your rule declarations, and they are not reusable.
 - they are less flexible; you can't add more if you discover you need more than one.
 - they are harder to override because they have higher specificity than classes.
+> For more on this subject, read [CSS Wizardry's](https://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/) article on dealing with specificity.
 	
 ### Bad
 ```css
