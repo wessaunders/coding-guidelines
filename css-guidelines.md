@@ -19,6 +19,7 @@ This is intended to establish coding and styling guidelines for CSS.
 	- [Longhand versus shorthand rules](#longhand-versus-shorthand-rules)
 	- [Mobile first media queries](#Mobile-first-media-queries)
 	- [Do not use ID selectors](#do-not-use-id-selectors)
+	- [Put blank lines between rule declarations](#put-blank-lines-between-rule-declarations)
 
 # Terminology
 
@@ -70,47 +71,6 @@ Finally, properties are what give the selected elements of a rule declaration th
 ```
 
 # CSS
-
-## Formatting
-- Use tabs for indentation.
-- Prefer dashes over camelCasing in class names.
-- When using multiple selectors in a rule declaration, give each selector its own line.
-- Put a space before the opening brace { in rule declarations.
-- In properties, put a space after, but not before, the : character.
-- Put closing braces } of rule declarations on a new line.
-- Put blank lines between rule declarations.
-
-### Bad
-```css
-.avatar {
-    border: 2px solid white;
-    border-radius: 50%;
-}
-
-.no,
-.nope,
-.not_good {
-    // ...
-}
-
-#lol-no {
-  // ...
-}
-```
-
-### Good
-```css
-.avatar {
-    border: 2px solid white;
-    border-radius: 50%;
-}
-
-.one,
-.selector,
-.per-line {
-  // ...
-}
-```
 
 ## Comments
 - Prefer line comments to block comments.
@@ -367,3 +327,44 @@ In a stylesheet that contains [media query](https://developer.mozilla.org/en-US/
   /* ... */
 }
 ```
+	
+## Put blank lines between rule declarations
+
+### Bad
+```css
+.avatar {
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.no,
+.nope,
+.not_good {
+    // ...
+}
+
+#lol-no {
+  // ...
+}
+```
+
+### Good
+```css
+.avatar {
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.one,
+.selector,
+.per-line {
+  // ...
+}
+```
+	
+- Use tabs for indentation.
+- Prefer dashes over camelCasing in class names.
+- When using multiple selectors in a rule declaration, give each selector its own line.
+- Put a space before the opening brace { in rule declarations.
+- In properties, put a space after, but not before, the : character.
+- Put closing braces } of rule declarations on a new line.
