@@ -12,6 +12,7 @@ This is intended to establish coding and styling guidelines for CSS.
 	- [Comments](#comments)
 	- [ID Selectors](#id-selectors)
 	- [Design patterns](#design-patterns)
+3. [Best practices](#best-practices)
 
 # Terminology
 
@@ -61,9 +62,6 @@ Finally, properties are what give the selected elements of a rule declaration th
     background: #f1f1f1;
 }
 ```
-
-**Use em for font-size: property value**
-Use em for font-size as opposed to px to ensure that font scaling works as expected across devices.
 
 # CSS
 
@@ -216,7 +214,7 @@ When building lists or grids:
 - Select the first-child to reset margins
 
 **```lib/containers/Reviews/index.js```**
-```
+```css
 import style from './style.css'
 
 const Reviews = ({ items }) =>
@@ -230,7 +228,7 @@ export default Reviews
 ```
 
 **```lib/containers/Reviews/style.css```**
-```
+```css
 .container > img {
   margin-left: 10px;
 }
@@ -245,7 +243,7 @@ Always define CSS variables to increase reuse and make styles more consistent. T
 
 To define a variable accessible globally:
 **```app/App/variables.css```**
-```
+```css
 :root {
   --color-green-1: #6CCFAE;
   --color-green-2: #6B66B5;
@@ -255,7 +253,7 @@ To define a variable accessible globally:
 ```
 
 **```app/components/Button/styles.css```**
-```
+```css
 .container {
   background-color:
     linear-gradient(
@@ -263,5 +261,86 @@ To define a variable accessible globally:
       var(--color-green-1),
       var(--color-green-2)
     );
+}
+```
+
+# Best practices
+
+## Use flexible/relative units
+For maximum flexibility over the widest possible range of devices, it is a good idea to size containers, padding, etc. using relative units like ems or percentages and viewport units if you want them to vary depending on viewport width. Mozilla has a great article about responsive design [here](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/responsive_design_building_blocks#fluid_grids) that goes into more detail about this.
+
+## Use em for font-size: property value
+Use em for font-size as opposed to px to ensure that font scaling works as expected across devices.
+
+## !important
+!important is the last resort that is generally used only when you need to override something and there is no other way to do it. Using !important is a bad practice and you should avoid it wherever possible.
+
+### Bad
+```css
+.bad-code {
+  font-size: 4rem !important;
+}
+```
+
+## Double quotes around values
+Where quotes can or should be included, use them, and use double quotes. For example:
+```css
+[data-vegetable="liquid"] {
+  background-color: goldenrod;
+  background-image: url("../../media/examples/lizard.png");
+}
+```
+
+## Longhand vs. shorthand rules
+It is clearer and more obvious to use longhand properties, rather than terse shorthand.
+- It is often harder to understand what the shorthand is doing. In the example below, it takes a while to pick apart exactly what the [font](https://developer.mozilla.org/en-US/docs/Web/CSS/font) syntax is doing.
+```css
+font: small-caps bold 2rem/1.5 sans-serif;
+```
+
+Whereas the following style is clearer:
+```css
+font-variant: small-caps;
+font-weight: bold;
+font-size: 2rem;
+line-height: 1.5;
+font-family: sans-serif;
+```
+
+- CSS shorthand comes with potential added pitfalls — default values are set for parts of the syntax that you don't explicitly set, which can produce unexpected resets of values you've set earlier in the cascade or other expected effects. The [grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid) property, for example, sets all of the following default values for items that are not specified:
+	- grid-template-rows: none
+	- grid-template-columns: none
+	- grid-template-areas: none
+	- grid-auto-rows: auto
+	- grid-auto-columns: auto
+	- grid-auto-flow: row
+	- column-gap: 0
+	- row-gap: 0
+	- column-gap: normal
+	- row-gap: normal
+- Some shorthands only work as expected if you include the different value components in a certain order. This is the case in CSS animations. In the example below, the expected order is written as a comment:
+```css
+/* duration | timing-function | delay | iteration-count
+  direction | fill-mode | play-state | name */
+animation: 3s ease-in 1s 2 reverse both paused slidein;
+```
+
+In this example, the first value that can be parsed as a [<time>](https://developer.mozilla.org/en-US/docs/Web/CSS/time) is assigned to the [animation-duration](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration) property, and the second value that can be parsed as time is assigned to [animation-delay](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay). (For more information, see [animation](https://developer.mozilla.org/en-US/docs/Web/CSS/animation#syntax) syntax details.)
+	
+## Mobile-first media queries
+In a stylesheet that contains [media query](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) styles for different target viewport sizes, first include the narrow screen/mobile styling before any other media queries are encountered. Add styling for wider viewport sizes via successive media queries. Following this rule has many advantages that are explained in Mozilla's [Mobile First](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/Mobile_first) article.
+```css
+/* Default CSS layout for narrow screens */
+
+@media (min-width: 480px) {
+  /* CSS for medium width screens */
+}
+
+@media (min-width: 800px) {
+  /* CSS for wide screens */
+}
+
+@media (min-width: 1100px) {
+  /* CSS for really wide screens */
 }
 ```
