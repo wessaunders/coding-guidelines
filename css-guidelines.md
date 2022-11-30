@@ -16,7 +16,7 @@ This is intended to establish coding and styling guidelines for CSS.
 	- [Use em for font-size property value](#use-em-for-font-size-property-value)
 	- [!important](#!important)
 	- [Double quotes around values](#double-quotes-around-values)
-	- [Longhand vs. shorthand rules](#longhand-vs.-shorthand-rules)
+	- [Longhand versus shorthand rules](#longhand-versus-shorthand-rules)
 	- [Mobile first media queries](#Mobile-first-media-queries)
 	- [Do not use ID selectors](#do-not-use-id-selectors)
 
@@ -295,7 +295,7 @@ Where quotes can or should be included, use them, and use double quotes. For exa
 }
 ```
 
-## Longhand vs. shorthand rules
+## Longhand versus shorthand rules
 It is clearer and more obvious to use longhand properties, rather than terse shorthand.
 - It is often harder to understand what the shorthand is doing. In the example below, it takes a while to pick apart exactly what the [font](https://developer.mozilla.org/en-US/docs/Web/CSS/font) syntax is doing.
 ```css
