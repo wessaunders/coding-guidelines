@@ -20,6 +20,7 @@ This is intended to establish coding and styling guidelines for CSS.
 	- [Mobile first media queries](#Mobile-first-media-queries)
 	- [Do not use ID selectors](#do-not-use-id-selectors)
 	- [Put blank lines between rule declarations](#put-blank-lines-between-rule-declarations)
+	- [Put each selector on its own line when using multiple selectors in a rule declaration](#put-each-selector-on-its-own-line-when-using-multiple-selectors-in-a-rule-declaration)
 
 # Terminology
 
@@ -362,9 +363,30 @@ In a stylesheet that contains [media query](https://developer.mozilla.org/en-US/
 }
 ```
 	
+## Put each selector on its own line when using multiple selectors in a rule declaration
+When a rule has multiple selectors, put each selector on a new line. This makes the selector list easier to read and can help to make code lines shorter.
+
+### Bad
+```css
+h1, h2, h3 {
+  font-family: sans-serif;
+  text-align: center;
+}
+```
+	
+### Good
+```css
+h1,
+h2,
+h3 {
+  font-family: sans-serif;
+  text-align: center;
+}
+	
+```
+	
 - Use tabs for indentation.
 - Prefer dashes over camelCasing in class names.
-- When using multiple selectors in a rule declaration, give each selector its own line.
 - Put a space before the opening brace { in rule declarations.
 - In properties, put a space after, but not before, the : character.
 - Put closing braces } of rule declarations on a new line.
