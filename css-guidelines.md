@@ -8,11 +8,17 @@ This is intended to establish coding and styling guidelines for CSS.
 	- [Selectors](#selectors)
 	- [Properties](#properties)
 2. [CSS](#css)
-	- [Formatting](#formatting)
 	- [Comments](#comments)
 	- [ID Selectors](#id-selectors)
 	- [Design patterns](#design-patterns)
-3. [Best practices](#best-practices)
+3. [Formatting](#formatting)
+	- [Use flexible/relative units](#use-flexible/relative-units)
+	- [Use em for font-size: property value](#use-em-for-font-size:-property-value)
+	- [!important](#!important)
+	- [Double quotes around values](#double-quotes-around-values)
+	- [Longhand vs. shorthand rules](#longhand-vs.-shorhand-rules)
+	- [Mobile first media queries](#Mobile-first-media-queries)
+	- [Don't use ID selectors](#don't-use-id-selectors)
 
 # Terminology
 
@@ -68,8 +74,6 @@ Finally, properties are what give the selected elements of a rule declaration th
 ## Formatting
 - Use tabs for indentation.
 - Prefer dashes over camelCasing in class names.
-- Underscores and PascalCasing are okay if you are using BEM (see OOCSS and BEM below).
-- Do not use ID selectors.
 - When using multiple selectors in a rule declaration, give each selector its own line.
 - Put a space before the opening brace { in rule declarations.
 - In properties, put a space after, but not before, the : character.
@@ -264,7 +268,7 @@ To define a variable accessible globally:
 }
 ```
 
-# Best practices
+# Formatting
 
 ## Use flexible/relative units
 For maximum flexibility over the widest possible range of devices, it is a good idea to size containers, padding, etc. using relative units like ems or percentages and viewport units if you want them to vary depending on viewport width. Mozilla has a great article about responsive design [here](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/responsive_design_building_blocks#fluid_grids) that goes into more detail about this.
@@ -327,7 +331,8 @@ animation: 3s ease-in 1s 2 reverse both paused slidein;
 
 In this example, the first value that can be parsed as a [<time>](https://developer.mozilla.org/en-US/docs/Web/CSS/time) is assigned to the [animation-duration](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration) property, and the second value that can be parsed as time is assigned to [animation-delay](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay). (For more information, see [animation](https://developer.mozilla.org/en-US/docs/Web/CSS/animation#syntax) syntax details.)
 	
-## Mobile-first media queries
+## Mobile first media queries
+	
 In a stylesheet that contains [media query](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) styles for different target viewport sizes, first include the narrow screen/mobile styling before any other media queries are encountered. Add styling for wider viewport sizes via successive media queries. Following this rule has many advantages that are explained in Mozilla's [Mobile First](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/Mobile_first) article.
 ```css
 /* Default CSS layout for narrow screens */
@@ -342,5 +347,23 @@ In a stylesheet that contains [media query](https://developer.mozilla.org/en-US/
 
 @media (min-width: 1100px) {
   /* CSS for really wide screens */
+}
+```
+
+## Don't use ID selectors
+- they are ess flexible; you can't add more if you discover you need more than one.
+- they are harder to override because they have higher specificity than classes.
+	
+### Bad
+```css
+#editorial-summary {
+  /* ... */
+}
+```	
+	
+### Good
+```css
+.editorial-summary {
+  /* ... */
 }
 ```
