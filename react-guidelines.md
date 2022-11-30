@@ -632,6 +632,8 @@ render() {
 ```
   
 # Naming
+*There are only two hard things in Computer Science: cache invalidation and naming things. - Phil Karlton*
+
 - Use US English
   - All identifiers (such as types, type members, parameters and variables) should be named using words from the American English language.
 - Choose easily readable, preferably grammatically correct names. 
