@@ -417,10 +417,10 @@ p {
 }
 	
 custom-grid {
-	background-color: white;
-	color: black;
-	height: 4em;
-	padding: 1em;
-	width: 3em;
+  background-color: white;
+  color: black;
+  height: 4em;
+  padding: 1em;
+  width: 3em;
 }
 ```
