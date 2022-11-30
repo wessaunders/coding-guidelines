@@ -411,16 +411,16 @@ p { color: white; background-color: black; padding: 1rem; }
 ### Good
 ```css
 p {
-  color: white;
-  background-color: black;
-  padding: 1em;
+	color: white;
+	background-color: black;
+	padding: 1em;
 }
 	
 custom-grid {
-  background-color: white;
-  color: black;
-  height: 4em;
-  padding: 1em;
-  width: 3em;
+	background-color: white;
+	color: black;
+	height: 4em;
+	padding: 1em;
+  	width: 3em;
 }
 ```
